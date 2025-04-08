@@ -1,0 +1,1 @@
+searchState.loadedDescShard("jogo_de_advinhacao", 0, "")

@@ -1,0 +1,13 @@
+O símbolo & indica que o argumento é uma referência, 
+o que permite múltiplas partes do seu código acessar um certo dado sem precisar criar várias cópias dele na memória. 
+Referências são uma característica complexa, e uma das maiores vantagens do Rust é o quão fácil e seguro é usar referências. 
+Você não precisa conhecer muitos desses detalhes para finalizar esse programa. 
+O Capítulo 4 vai explicar sobre referências de forma mais aprofundada. 
+Por enquanto, tudo que você precisa saber é que, assim como as variáveis, referências são imutáveis por padrão. 
+Por isso, precisamos escrever &mut palpite, em vez de apenas &palpite, para fazer com que o palpite seja mutável.
+
+
+cargo add <lib>
+cargo update // Atualizar libs
+
+cargo doc --open // Vai abrir no navegador uma documentacao das dependencias do projeto

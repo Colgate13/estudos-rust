@@ -1,0 +1,15 @@
+cargo --version
+
+cargo new hello_cargo --bin
+cd hello_cargo
+
+--bin transmitido para cargo new cria um aplicativo executável (geralmente chamado apenas de binário), em oposição a uma biblioteca. Atribuímos hello_cargo como o nome do nosso projeto e o Cargo cria seus arquivos em um diretório com o mesmo nome.
+
+
+cargo build
+
+cargo run
+
+cargo check
+
+cargo build --release
