@@ -2,41 +2,31 @@ extern crate rand;
 
 use std::io;
 use std::cmp::Ordering;
-use rand::Rng;
 
 fn main() {
     println!("Advinhe o numero!");
+    let secret_number = rand::random_range(1..101);
 
-    // let numero_secrete = rand::random_range(1..100);
-    let numero_secreto = rand::thread_rng().gen_range(1..101);
+    loop {
+        println!("Digite o seu user_number.");
 
-    // println!("O numero sercreto 'e {}", numero_secreto);
-
-    loop {        
-        println!("Digite o seu palpite.");
-
-        let mut palpite = String::new();
+        let mut user_number = String::new();
 
         io::stdin()
-            .read_line(&mut palpite)
+            .read_line(&mut user_number)
             .expect("Falha ao ler entrada");
 
-        // let palpite: u32 = palpite
-        //                     .trim()
-        //                     .parse()
-        //                     .expect("Erro ao converter string em numero");
-        let palpite: u32 = match palpite
+        let user_number: u32 = match user_number
                             .trim()
                             .parse() {
-                                Ok(numero) => numero, //Ok e Err sao apenas enums
+                                Ok(number) => number,
                                 Err(_) => continue,
                             };
 
+        println!("Voce disse: {}", user_number);
 
-        println!("Voce disse: {}", palpite);
-
-        match palpite.cmp(&numero_secreto) { // Quase um switch case foda
-            Ordering::Less => println!("Muito baixo!"), // Ordering sao basicamente enum
+        match user_number.cmp(&secret_number) {
+            Ordering::Less => println!("Muito baixo!"),
             Ordering::Greater => println!("Muito alto!"),
             Ordering::Equal => {
                 println!("Voce acertou!");
