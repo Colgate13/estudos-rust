@@ -5,8 +5,15 @@ enum Choices {
     CelsiusToFahrenheit = 2
 }
 
-fn fahrenhei_to_celsius() {}
-fn celsius_to_fahrenhei() {}
+fn fahrenhei_to_celsius(fahrenheit: f64) -> f64 {
+    // C = (F - 32) * 5 / 9
+    (fahrenheit - 32.0) *  5.0 / 9.0
+}
+
+fn celsius_to_fahrenhei(celsius: f64) -> f64 {
+    // F = (C * 9/5) + 32
+    (celsius * 9.0 / 5.0) + 32.0
+}
 
 fn main() {
     println!("Temperature Converter");
@@ -40,18 +47,18 @@ fn main() {
                                         Err(_) => continue 
                                     };
 
-        println!("Insira o celsius");
+        println!("Insira o valor a ser convertido");
 
-        let mut user_celsius = String::new();
+        let mut user_value = String::new();
         match io::stdin()
-                    .read_line(&mut user_celsius) {
+                    .read_line(&mut user_value) {
                         Ok(celsius) => celsius,
                         Err(_) => {
                             println!("Deu ruim no input de celsius");
                             continue;
                         }
                     };
-        let user_celsius: i64 = match user_celsius
+        let user_value: f64 = match user_value
                                         .trim()
                                         .parse() {
                                             Ok(number) => number,
@@ -60,35 +67,18 @@ fn main() {
                                                 continue;
                                             }
                                         };
-                                        
-        println!("Insira o fahrenhei");
 
-        let mut user_fahrenhei = String::new();
-        match io::stdin()
-                    .read_line(&mut user_fahrenhei) {
-                        Ok(celsius) => celsius,
-                        Err(_) => {
-                            println!("Deu ruim no input de fahrenhei");
-                            continue;
-                        }
-                    };
-        let user_fahrenhei: i64 = match user_fahrenhei
-                                        .trim()
-                                        .parse() {
-                                            Ok(number) => number,
-                                            Err(_) => {
-                                                println!("Deu ruim para converter pae fahrenhei");
-                                                continue;
-                                            }
-                                        };
+        let result: f64;
+        match user_choice {
+            Choices::CelsiusToFahrenheit => {
+                result = celsius_to_fahrenhei(user_value);
+            },
+            Choices::FahrenheitToCelsius => {
+                result = fahrenhei_to_celsius(user_value);
+            },
+        }
 
-        println!("Celsius {}, fahrenhei {}", user_celsius, user_fahrenhei);
-        
-
-        // match user_choice {
-        //     Choices::CelsiusToFahrenheit => celsius_to_fahrenhei(),
-        //     Choices::FahrenheitToCelsius => fahrenhei_to_celsius(),
-        // }
+        println!("O resultado: {result}");
             
     }
 }
