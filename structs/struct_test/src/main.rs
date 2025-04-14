@@ -1,3 +1,5 @@
+mod test;
+
 struct Position {
     x: i64,
     y: i64
@@ -5,12 +7,12 @@ struct Position {
 
 fn main() {
     println!("Testse1");
-
+    test::foo();
     let mut position = Position { x: 1, y: 2 };
-    position1(position);
     position3(&mut position);
     position3(&mut position);
     position2(&position);
+    position1(position);
 }
 
 fn position1(pos: Position) {
