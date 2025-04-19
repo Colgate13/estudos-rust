@@ -38,7 +38,7 @@ fn moda(lista: &Vec<i32>) -> i32 {
         if moda == 0 {
             moda = *key;
         } else {
-            match  tabela_hash.get(&moda) {
+            match tabela_hash.get(&moda) {
                 Some(moda_count) => {
                     if count > moda_count {
                         moda = *key;

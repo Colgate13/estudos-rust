@@ -22,7 +22,8 @@ fn mediana(vector: &Vec<i32>) -> i32 {
     vector[vector.len() / 2]
 }
 
-fn moda(vector: &[i32]) -> i32 {
+// fn moda(vector: &[i32]) -> i32 { podemos fazer assim tambem
+fn moda(vector: &Vec<i32>) -> i32 {
     let mut frequencias = HashMap::new();
 
     for &valor in vector {
