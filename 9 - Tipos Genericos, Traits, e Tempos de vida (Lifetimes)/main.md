@@ -651,7 +651,7 @@ fn main() {
     let resultado;
     {
         let string2 = String::from("xyz");
-        resultado = longest(string1.as_str(), string2.as_str());
+        resultado = longest(string1.as_str(), string2.as_str());  // Basicamente o bo aqui 'e que a string2 vai sair do escopo quando for usar a variavel resultado, mas como especificamos que o tempo de vida da string2 e o tempo de vida do resultado sao iguais, o compilador nao vai deixar compilar
     }
     println!("A string mais longa é {}", resultado);
 }
